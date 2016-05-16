@@ -25,42 +25,34 @@ namespace WindowsFormsApplication2
         [Serializable()]
         public class Car
         {
-            [System.Xml.Serialization.XmlElementAttribute("StockNumber")]
+            [System.Xml.Serialization.XmlElement("StockNumber")]
             public string StockNumber { get; set; }
 
-            [System.Xml.Serialization.XmlElementAttribute("Make")]
+            [System.Xml.Serialization.XmlElement("Make")]
             public string Make { get; set; }
 
-            [System.Xml.Serialization.XmlElementAttribute("Model")]
+            [System.Xml.Serialization.XmlElement("Model")]
             public string Model { get; set; }
         }
-.
 
-[System.Xml.Serialization.XmlRootAttribute("Cars", Namespace = "", IsNullable = false)]
-        public class Cars
+
+        [Serializable()]
+        [System.Xml.Serialization.XmlRoot("CarCollection")]
+        public class CarCollection
         {
-            [XmlArrayItem(typeof(Car))]
+            [XmlArray("Cars")]
+            [XmlArrayItem("Car", typeof(Car))]
             public Car[] Car { get; set; }
-
         }
-.
+        The Deserialize function:
 
-        public class CarSerializer
-        {
-            public Cars Deserialize()
-            {
-                Cars[] cars = null;
-                string path = HttpContext.Current.ApplicationInstance.Server.MapPath("~/App_Data/") + "cars.xml";
+        CarCollection cars = null;
+        string path = "cars.xml";
 
-                XmlSerializer serializer = new XmlSerializer(typeof(Cars[]));
+        XmlSerializer serializer = new XmlSerializer(typeof(CarCollection));
 
-                StreamReader reader = new StreamReader(path);
-                reader.ReadToEnd();
-                cars = (Cars[])serializer.Deserialize(reader);
-                reader.Close();
-
-                return cars;
-            }
-        }
+        StreamReader reader = new StreamReader(path);
+        cars = (CarCollection)serializer.Deserialize(reader);
+        reader.Close();
     }
 }
