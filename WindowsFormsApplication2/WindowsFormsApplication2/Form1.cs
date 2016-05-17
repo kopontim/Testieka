@@ -63,154 +63,112 @@ namespace WindowsFormsApplication2
         /// <remarks/>
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
         [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-        public partial class doc
+        public partial class xml
         {
 
-            private docAssembly assemblyField;
-
-            private docMember[] membersField;
+            private xmlContentInstance[] contentInstanceField;
 
             /// <remarks/>
-            public docAssembly assembly
+            [System.Xml.Serialization.XmlElementAttribute("contentInstance")]
+            public xmlContentInstance[] contentInstance
             {
                 get
                 {
-                    return this.assemblyField;
+                    return this.contentInstanceField;
                 }
                 set
                 {
-                    this.assemblyField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlArrayItemAttribute("member", IsNullable = false)]
-            public docMember[] members
-            {
-                get
-                {
-                    return this.membersField;
-                }
-                set
-                {
-                    this.membersField = value;
+                    this.contentInstanceField = value;
                 }
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-        public partial class docAssembly
+        public partial class xmlContentInstance
         {
 
-            private string nameField;
+            private xmlContentInstanceContent contentField;
+
+            private string resourceNameField;
+
+            private string resourceUnitField;
+
+            private string creationTimeField;
 
             /// <remarks/>
-            public string name
+            public xmlContentInstanceContent content
             {
                 get
                 {
-                    return this.nameField;
+                    return this.contentField;
                 }
                 set
                 {
-                    this.nameField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-        public partial class docMember
-        {
-
-            private docMemberSummary summaryField;
-
-            private string nameField;
-
-            /// <remarks/>
-            public docMemberSummary summary
-            {
-                get
-                {
-                    return this.summaryField;
-                }
-                set
-                {
-                    this.summaryField = value;
+                    this.contentField = value;
                 }
             }
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string name
+            public string resourceName
             {
                 get
                 {
-                    return this.nameField;
+                    return this.resourceNameField;
                 }
                 set
                 {
-                    this.nameField = value;
+                    this.resourceNameField = value;
                 }
             }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-        public partial class docMemberSummary
-        {
-
-            private docMemberSummarySee seeField;
-
-            private string[] textField;
-
-            /// <remarks/>
-            public docMemberSummarySee see
-            {
-                get
-                {
-                    return this.seeField;
-                }
-                set
-                {
-                    this.seeField = value;
-                }
-            }
-
-            /// <remarks/>
-            [System.Xml.Serialization.XmlTextAttribute()]
-            public string[] Text
-            {
-                get
-                {
-                    return this.textField;
-                }
-                set
-                {
-                    this.textField = value;
-                }
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-        public partial class docMemberSummarySee
-        {
-
-            private string crefField;
 
             /// <remarks/>
             [System.Xml.Serialization.XmlAttributeAttribute()]
-            public string cref
+            public string resourceUnit
             {
                 get
                 {
-                    return this.crefField;
+                    return this.resourceUnitField;
                 }
                 set
                 {
-                    this.crefField = value;
+                    this.resourceUnitField = value;
+                }
+            }
+
+            /// <remarks/>
+            [System.Xml.Serialization.XmlAttributeAttribute()]
+            public string creationTime
+            {
+                get
+                {
+                    return this.creationTimeField;
+                }
+                set
+                {
+                    this.creationTimeField = value;
+                }
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
+        public partial class xmlContentInstanceContent
+        {
+
+            private decimal textContentField;
+
+            /// <remarks/>
+            public decimal textContent
+            {
+                get
+                {
+                    return this.textContentField;
+                }
+                set
+                {
+                    this.textContentField = value;
                 }
             }
         }
