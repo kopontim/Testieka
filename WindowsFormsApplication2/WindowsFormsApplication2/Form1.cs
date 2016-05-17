@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace WindowsFormsApplication2
 {
@@ -40,8 +43,8 @@ namespace WindowsFormsApplication2
         [System.Xml.Serialization.XmlRoot("CarCollection")]
         public class CarCollection
         {
-        //    [XmlArray("Cars")]
-        //    [XmlArrayItem("Car", typeof(Car))]
+            [XmlArray("Cars")]
+            [XmlArrayItem("Car", typeof(Car))]
             public Car[] Car { get; set; }
         }
 
@@ -52,9 +55,9 @@ namespace WindowsFormsApplication2
             CarCollection cars = null;
             string path = "cars.xml";
 
-        //    XmlSerializer serializer = new XmlSerializer(typeof(CarCollection));
+            XmlSerializer serializer = new XmlSerializer(typeof(CarCollection));
 
-        //    StreamReader reader = new StreamReader(path);
+            System.IO.StreamReader reader = new StreamReader(path);
         //    cars = (CarCollection)serializer.Deserialize(reader);
         //    reader.Close();
         }
