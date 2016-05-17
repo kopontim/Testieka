@@ -40,8 +40,8 @@ namespace WindowsFormsApplication2
         [System.Xml.Serialization.XmlRoot("CarCollection")]
         public class CarCollection
         {
-            [XmlArray("Cars")]
-            [XmlArrayItem("Car", typeof(Car))]
+        //    [XmlArray("Cars")]
+        //    [XmlArrayItem("Car", typeof(Car))]
             public Car[] Car { get; set; }
         }
 
@@ -52,11 +52,11 @@ namespace WindowsFormsApplication2
             CarCollection cars = null;
             string path = "cars.xml";
 
-            XmlSerializer serializer = new XmlSerializer(typeof(CarCollection));
+        //    XmlSerializer serializer = new XmlSerializer(typeof(CarCollection));
 
-            StreamReader reader = new StreamReader(path);
-            cars = (CarCollection)serializer.Deserialize(reader);
-            reader.Close();
+        //    StreamReader reader = new StreamReader(path);
+        //    cars = (CarCollection)serializer.Deserialize(reader);
+        //    reader.Close();
         }
 
 
