@@ -15,7 +15,7 @@ namespace WindowsFormsApplication1
 {
 // 25.5.2016 10:30
 
-public class xml
+public class xml_Kookmin
 {
     string m_contentInstance = "";
     public string contentInstance

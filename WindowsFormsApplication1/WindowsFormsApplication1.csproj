@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XMLtoClass_kolmas.cs" />
     <Compile Include="XMLtoClass_testi.cs" />
     <Compile Include="XMLtoClass_vaihtoehto.cs" />
     <EmbeddedResource Include="Form1.resx">
